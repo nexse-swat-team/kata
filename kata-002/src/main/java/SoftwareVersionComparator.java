@@ -1,5 +1,6 @@
 import java.security.SecureRandom;
 import java.util.Comparator;
+import java.util.StringTokenizer;
 
 public class SoftwareVersionComparator implements Comparator<String> {
 
@@ -22,7 +23,25 @@ public class SoftwareVersionComparator implements Comparator<String> {
      */
     @Override
     public int compare(String version1, String version2) {
-        return 42; // TODO: implement me
+        StringTokenizer ver1 = new StringTokenizer(version1, ".", false);
+        StringTokenizer ver2 = new StringTokenizer(version2, ".", false);
+        int result = 0;
+        int tokenInt1;
+        int tokenInt2;
+        while(ver1.hasMoreTokens() && ver2.hasMoreTokens()){
+
+            tokenInt1 = Integer.parseInt(ver1.nextToken());
+            tokenInt2 = Integer.parseInt(ver2.nextToken());
+
+            if (tokenInt1 != tokenInt2)
+                return tokenInt1-tokenInt2;
+        }
+        if (ver1.hasMoreTokens())
+                result = 1;
+        if (ver2.hasMoreTokens())
+                result = -1;
+
+        return result; // TODO: implement me
     }
 
 }
