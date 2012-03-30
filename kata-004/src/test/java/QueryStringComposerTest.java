@@ -4,15 +4,23 @@ import static org.junit.Assert.assertEquals;
 
 public class QueryStringComposerTest {
 
-/**
- * TODO: creare una querystring a partire da coppie chiave valore:
- * se non ce ne sono la query string deve essere ""
- * se ce n'e' una deve essere "?k1=v1"
- * se ce ne sono piu' di una "?k1=v1&k2=v2&...."
- * se per qualche coppia la chiave k o il valore v e' nullo o vuoto, la coppia va omessa
- *
- * Per questo kata, essendo l'implementazione libera, va scritto anche il test
- *
- */
+    @Test
+    public void queryStringComposerTest(){
+        QueryStringComposer queryStringComposer = new QueryStringComposer();
+        assertEquals("?k1=v1", queryStringComposer.addPair("k1", "v1").toString());
+        assertEquals("", queryStringComposer.addPair(null, "v1").toString());
+        assertEquals("", queryStringComposer.addPair("k1", null).toString());
+        assertEquals("", queryStringComposer.addPair(null, null).toString());
+        assertEquals("", queryStringComposer.addPair("", "v1").toString());
+        assertEquals("", queryStringComposer.addPair("k1", "").toString());
+        assertEquals("", queryStringComposer.addPair("", "").toString());
 
+        assertEquals("?k1=v1&k2=v2", queryStringComposer.addPair("k1", "v1").addPair("k2","v2").toString());
+        assertEquals("?k1=v1", queryStringComposer.addPair("k1", "v1").addPair(null, "v2").toString());
+        assertEquals("", queryStringComposer.addPair("k1", "v1").addPair("k2", null).toString());
+        assertEquals("", queryStringComposer.addPair("k1", "v1").addPair(null, null).toString());
+        assertEquals("", queryStringComposer.addPair("k1", "v1").addPair("", "v2").toString());
+        assertEquals("", queryStringComposer.addPair("k1", "v1").addPair("k2", "").toString());
+        assertEquals("", queryStringComposer.addPair("k1", "v1").addPair("", "").toString());
+    }
 }

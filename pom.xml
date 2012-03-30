@@ -17,6 +17,7 @@
         <module>kata-001</module>
         <module>kata-002</module>
         <module>kata-003</module>
+        <module>kata-004</module>
         <module>kata-005</module>
     </modules>
     <scm>
