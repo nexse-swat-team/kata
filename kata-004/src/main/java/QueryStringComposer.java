@@ -2,15 +2,19 @@
 public class QueryStringComposer {
 
     /**
-     * TODO: creare una querystring a partire da coppie chiave valore:
-     * se non ce ne sono la query string deve essere ""
-     * se ce n'e' una deve essere "?k1=v1"
-     * se ce ne sono piu' di una "?k1=v1&k2=v2&...."
-     * se per qualche coppia la chiave k o il valore v e' nullo o vuoto, la coppia va omessa
+     * This method use a fluent interface (see: http://en.wikipedia.org/wiki/Fluent_interface)
+     * to accept couples key-value useful for create a queryString.
      *
-     * Per questo kata, l'implementazione e' libera, ma e' obbligatorio scrivere anche il test corrispondente.
+     * if we call addPair(k1, v1) the result must be "?k1=v1"
+     * if we call addPair(k1,v1).addPAir(k2,v2) the result must be "?k1=v1&k2=v2
+     * and so on.
+     *
+     * Remember to handle null and empty value, see test class for more.
      *
      * @return a well formed queryString
      */
-    
+
+    public QueryStringComposer addPair(String key, String value) {
+        return null;
+    }
 }
