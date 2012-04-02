@@ -1,5 +1,7 @@
 
 public class QueryStringComposer {
+    
+    private StringBuffer myQueryString = new StringBuffer();
 
     /**
      * This method use a fluent interface (see: http://en.wikipedia.org/wiki/Fluent_interface)
@@ -13,8 +15,7 @@ public class QueryStringComposer {
      *
      * @return a well formed queryString
      */
-
     public QueryStringComposer addPair(String key, String value) {
-        return null;
+        return null; // TODO: implement me
     }
 }
