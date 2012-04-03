@@ -11,7 +11,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.nexse.swat.kata</groupId>
     <artifactId>kata-004</artifactId>
-    <name>Kata 004: query string composer</name>
+    <name>Kata 004: The Query String Composer Kata</name>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
